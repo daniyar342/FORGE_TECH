@@ -46,12 +46,12 @@ class Apartment(models.Model):
     ]
 
     num_apartment = models.IntegerField(verbose_name = "№ квартиры")
-    location = models.ForeignKey(City, on_delete=models.CASCADE,verbose_name = "Обьект")
+    location = models.ForeignKey(City, on_delete=models.CASCADE,verbose_name = "Обьект",null =True, blank =True)
     floor = models.IntegerField(verbose_name = "Этаж")
     square = models.DecimalField(max_digits=10, decimal_places=2,verbose_name = "КВ")
     date = models.DateField(verbose_name = "Дата")
     price = models.IntegerField(verbose_name = "Цена")
-    clients = models.ForeignKey(Client,on_delete=models.CASCADE,verbose_name = "Клиент")
+    clients = models.ForeignKey(Client,on_delete=models.CASCADE,verbose_name = "Клиент",null =True, blank =True)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES,verbose_name = "Cтатус")
 
     
