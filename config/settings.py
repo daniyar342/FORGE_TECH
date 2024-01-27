@@ -15,12 +15,13 @@ SECRET_KEY = 'django-insecure-=&0cvxt6_7(ml^$%e4xq!o(#34wd%51a+85m%a&*gc8xj0reo&
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
 INSTALLED_APPS = [
     'jazzmin',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -28,16 +29,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #INSTALLED APPS
     'rest_framework_simplejwt',
     'drf_spectacular',
     'corsheaders',
     'rest_framework',
 
+    #MY APPS
     'managers',
     'appartments',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
