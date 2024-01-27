@@ -16,29 +16,30 @@ class ApartmentSerializer(serializers.ModelSerializer):
         return obj.clients.name if obj.clients else None
     
 
-class CitySerializerWithAppartments(serializers.ModelSerializer):
-    apartments = serializers.SerializerMethodField() 
 
-    class Meta:
-        model = City
-        fields = ['id', 'name', 'apartments']
+# class CitySerializerWithAppartments(serializers.ModelSerializer):
+#     apartments = serializers.SerializerMethodField() 
 
-    def get_apartments(self, obj):
-        apartments = obj.apartment_set.all()
-        serializer = ApartmentSerializer(apartments, many=True)
-        return serializer.data
+#     class Meta:
+#         model = City
+#         fields = ['id', 'name', 'apartments']
+
+#     def get_apartments(self, obj):
+#         apartments = obj.apartment_set.all()
+#         serializer = ApartmentSerializer(apartments, many=True)
+#         return serializer.data
     
     
-class ClientSerializer(serializers.ModelSerializer):
-    apartments = serializers.SerializerMethodField()
+# class ClientSerializer(serializers.ModelSerializer):
+#     apartments = serializers.SerializerMethodField()
 
-    class Meta:
-        model = Client
-        fields = ['id', 'name', 'number', 'deal', 'status', 'apartments']
+#     class Meta:
+#         model = Client
+#         fields = ['id', 'name', 'number', 'deal', 'status', 'apartments']
 
-    def get_apartments(self, obj):
-        apartments = obj.apartment_set.all()
-        serializers = ApartmentSerializer(apartments, many=True) 
-        return serializers.data
+#     def get_apartments(self, obj):
+#         apartments = obj.apartment_set.all()
+#         serializers = ApartmentSerializer(apartments, many=True) 
+#         return serializers.data
 
 

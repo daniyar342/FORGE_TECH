@@ -19,6 +19,6 @@ class CityAdmin(admin.ModelAdmin):
 
 @admin.register(Apartment)
 class ApartmentAdmin(admin.ModelAdmin):
-    list_display = ("num_apartment", "location", "floor", "square", "date", "price", "status")
+    list_display = ('id',"num_apartment", "location", "floor", "square", "date", "price", "status")
     list_filter = ("price", "num_apartment","floor","square", "status")
     search_fields = ['location__name',"price", "num_apartment","floor","square", "status"]

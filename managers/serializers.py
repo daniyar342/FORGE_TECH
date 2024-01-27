@@ -10,3 +10,8 @@ class ManagerRegisterSerializers(ModelSerializer):
     def create(self, validated_data):
         user = Manager.objects.create_user(**validated_data)
         return user
+    
+class ManagerSerializer(ModelSerializer):
+    class Meta:
+        model = Manager
+        fields = ['id','email','username','number','created_at','amount_of_trade']
